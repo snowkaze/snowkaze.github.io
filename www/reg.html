@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reg.css">
+</head>
+
+<body>
+    <header>
+        <div class="head">
+            <div class="logo">
+                <a href="//www.jd.com/">
+                    <img src="//misc.360buyimg.com/lib/img/e/logo-201305-b.png" alt="京东" width="160" height="50">
+
+                </a>
+                <div>欢迎注册 </div>
+            </div>
+            <div class="question" href="//surveys.jd.com/index.php?r=survey/index/sid/568245/lang/zh-Hans">
+                <span>已有账号？</span>
+                <a>请登录></a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="step">
+            <div class="step1">
+                <div>1</div>
+                <div>验证手机号</div>
+            </div>
+            <div class="step1_img"></div>
+            <div class="step2">
+                <div>2</div>
+                <div>填写账号信息</div>
+            </div>
+            <div class="step2_img"></div>
+            <div class="step3">
+                <div>3</div>
+                <div>注册成功</div>
+            </div>
+
+        </div>
+        <form action="/jd/reg" method="POST">
+            <div class="tel">
+                <label for="tel">中国 0086</label><input type="tel" placeholder="建议使用常用手机号" required name="tel" pattern="^0?(13|15|17|18|14)[0-9]{9}$">
+                <br>
+                <div class="msg">&#x3000;</div>
+            </div>
+
+            <button class="btn" style="display: none">点击按钮进行验证</button>
+            
+            <div class="tel_code">
+                    <div class="code_left">
+                        <div class="code_text">手机验证码</div><input type="text" placeholder="建议使用常用手机号" required name="code" >
+                    </div>   
+                    <br>
+                    <div class="code_msg">&#x3000;</div>
+            </div>
+
+
+        </form>
+
+        <div class="next_step">下一步</div>
+        <div class="reg_other">
+            <div class="reg_other_left">
+                <div class="reg_pic"></div>
+                <span>企业用户注册</span>
+            </div>
+            <div class="reg_other_right">
+                <div class="reg_pic"></div>
+                <span>国际站注册</span>
+            </div>
+        </div>
+    </main>
+    <hr>
+    <nav>
+        <a href="">关于我们</a>
+        <a href="">联系我们</a>
+        <a href="">人才招聘</a>
+        <a href="">商家入驻</a>
+        <a href="">广告服务</a>
+        <a href="">手机京东</a>
+        <a href="">友情链接</a>
+        <a href="">销售联盟</a>
+        <a href="">京东社区</a>
+        <a href="">京东公益</a>
+        <a href="">English Site</a>
+    </nav>
+    <footer>
+        <p>Copyright © 2004-2018 京东JD.com 版权所有</p>
+    </footer>
+    <script src="jquery/jquery-3.3.1.min.js"></script>
+    <script src="js/reg.js"></script>
+    <script>
+        $('input[name=tel]').focus(function () {
+            if ($('input[name=tel]').val() == '') {
+                $('.msg').text('验证完成后,你可以使用该手机登录或找回密码')
+            }
+
+
+
+        })
+        var tel=[]
+        $('input[name=tel]').on('input', function () {
+
+            var hastel = /^1[34578][0-9]{9}$/;
+            if (hastel.test($('input[name=tel]').val())) {
+                $('.msg').text('√')
+            } else {
+                $('.msg').text('X')
+            }
+            if ($('input[name=tel]').val() == '') {
+                $('.msg').text('验证完成后,你可以使用该手机登录或找回密码')
+            }
+            tel = $('input[name=tel]').val()
+           
+        })
+
+        $('input[name=tel]').blur(function () {
+            $('.msg').text('')
+        })
+       
+            $('form').submit(function (e) {
+                e.preventDefault()
+                $.post({
+                    url: '/jd/reg',
+                    data: {
+                        tel: tel
+                    },
+                    success:function(data){
+                           if(data.code!=0){
+                               alert('用户已存在')
+                           }
+                    }
+
+                })
+            })
+    </script>
+</body>
+
+</html>

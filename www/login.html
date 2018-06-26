@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            width: 100%;
+            margin: 0px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .head {
+            width: 990px;
+            /* height: 300px; */
+            margin: 0px auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .head .logo b {
+            background: url(//misc.360buyimg.com/user/passport/1.0.0/css/i/l-icon.png) no-repeat;
+            display: inline-block;
+            width: 110px;
+            height: 40px;
+            margin-left: 10px;
+        }
+
+        .head .question {
+
+            margin-top: 40px;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .head .question img {
+
+            width: 18px;
+            height: 14px;
+            vertical-align: bottom
+        }
+
+        main .head {
+            height: 39px;
+            width: 100%;
+            background-color: #fff8f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main .head .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main .head p {
+            color: #999;
+            font-size: 12px;
+            display: inline-block;
+            margin-left: 5px;
+        }
+
+        main .head img {
+
+            height: 16px;
+            width: 16px;
+            vertical-align: bottom
+        }
+
+        main .head p a {
+            color: black
+        }
+
+        main .banner {
+            width: 100%;
+            height: 475px;
+            background: #e93854;
+            overflow: hidden;
+        }
+
+        main .banner_content {
+            width: 990px;
+            height: 475px;
+            margin: 0px auto;
+            background: url('京东-欢迎登录/5aa68632Nd7790d0c.png');
+            display: flex;
+            justify-content: flex-end;
+
+        }
+
+        main .banner_content .login {
+            width: 346px;
+            height: 400px;
+            background-color: white;
+            margin-top: 10px;
+            position: relative;
+        }
+
+        main .banner_content .login .header {
+            height: 39px;
+            background-color: #fff8f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        main .banner_content .login .header span {
+            font-size: 12px;
+            margin-left: 5px;
+            color: #999;
+        }
+
+        main .select {
+            height: 55px;
+            display: flex;
+            border-bottom: 1px solid #f4f4f4;
+
+        }
+
+        main .select div:nth-of-type(1),
+        main .select div:nth-of-type(3) {
+            flex-grow: 1;
+            text-align: center;
+            line-height: 55px
+        }
+
+        /* main .select div:nth-child(1):after{
+            content: '';
+            height: 18px;
+            margin-left: 50px;
+            vertical-align: middle;
+            width: 1px;
+          
+            background: black;
+            display: inline-block;
+            
+           
+        } */
+
+        main .select div:nth-of-type(2) {
+            height: 20px;
+            box-sizing: border-box;
+            margin-top: 20px;
+            width: 1px;
+            background-color: #f4f4f4;
+        }
+
+        main .select div:nth-of-type(3) a {
+            font-weight: 700;
+            color: #e4393c;
+        }
+        input[name=user]{
+            width: 265px;
+            height: 38px;
+            box-sizing: border-box;
+            padding-left: 10px;
+            outline: none
+
+            
+        }
+        label[for=user]{
+            width: 38px;
+            height: 38px;
+            background-image: url('京东-欢迎登录/pwd-icons-new.png');
+            box-sizing: border-box;
+            border: 1px solid #bdbdbd;
+            border-right: none;
+            background-position: 0 0;
+            
+        }
+        .user{
+            height: 38px;
+            width: 304px;
+            display: flex;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+
+        .pwd{
+            height: 38px;
+            width: 304px;
+            display: flex;
+            
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+        label[for=pwd]{
+            width: 38px;
+            height: 38px;
+            background-image: url('京东-欢迎登录/pwd-icons-new.png');
+            box-sizing: border-box;
+            border: 1px solid #bdbdbd;
+            border-right: none;
+            background-position: -48px 0;
+        }
+        input[name=pwd]{
+            width: 265px;
+            height: 38px;
+            box-sizing: border-box;
+            padding-left: 10px;
+            outline: none;
+            
+        }
+        .forget{
+            width: 304px;
+            margin: 0 auto;
+            text-align: right;
+            margin-top: 20px;
+            
+        }
+        .forget a{
+            font-size: 12px;
+            color: #666;
+            
+        }
+        .btn{
+            width: 304px;
+            height: 33px;
+            margin: 0px auto;
+            margin-top: 20px;
+        }
+        input[type=submit]{
+            width: 304px;
+            height: 33px;
+            background: #e4393c;
+            color: white;
+            border: 1px solid #cb2a2d;
+            font-size: 20px;
+        }   
+        .login_bottom{
+            height: 50px;
+            width: 100%;
+            background: #fcfcfc;
+            box-sizing: border-box;
+            border-top:1px solid #f4f4f4;
+            position: absolute;
+            bottom: 0px;
+        } 
+        main .reg{
+            width:306px;
+            height: 50px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+        }
+        main .reg_left{
+            width: 114px;
+            display: flex;
+            
+        }
+        main .qq .qq_img{
+            width: 19px;
+            height: 18px;
+            background: url('京东-欢迎登录/QQ-weixin.png');
+            background-position: 0 0;
+            display: inline-block;
+            vertical-align: bottom
+        }
+        main .qq span{
+            font-size: 12px;
+        }
+        main .wechat .wechat_img{
+            width: 19px;
+            height: 18px;
+            background: url('京东-欢迎登录/QQ-weixin.png');
+            background-position: -19px 0;
+            display: inline-block;
+            vertical-align: bottom
+        }
+        main .wechat span{
+            font-size: 12px;
+        }
+        main .reg_left>span{
+            display: inline-block;
+            height: 10px;
+            width: 1px;
+            background-color: #d5ccd5;
+            box-sizing: border-box;
+            
+            margin: 0 10px;
+            margin-top: 8px;
+        }
+        main .reg_right{
+            width:77px;
+        }
+        main .reg_img{
+            width: 16px;
+            height: 16px;
+            background: url('京东-欢迎登录/pwd-icons-new.png');
+            background-position: -104px 99px;
+            display: inline-block;
+            vertical-align: bottom
+        }
+        main .reg_right>span{
+            font-size: 14px;
+            color: #B61D1D;
+        }
+        nav{
+            width: 990px;
+            height: 18px;
+            margin:0px auto;
+            display: flex;
+            justify-content: center;
+            margin-top:20px;
+        }
+        nav a{
+            font-size: 14px;
+            color: #666666;
+        }
+        nav a:nth-of-type(-n+10):after{
+            content: '';
+            height: 10px;
+            width: 1px;
+            background: #666666;
+            display: inline-block;
+            margin:0px 10px;
+            
+        }
+        footer{
+            width: 990px;
+            margin: 0px auto;
+            margin-top:10px;
+            text-align: center;
+            color: #666;
+            font-size: 12px
+            
+        }
+        main .QR_image{
+            margin-top: 20px;
+            
+            display: flex;
+            justify-content: center
+        }
+        main .QR_image .QR_image1{
+            padding: 10px;
+            border: 1px solid #f4f4f4;
+        }
+        
+       
+        
+    </style>
+
+</head>
+
+<body>
+    <div class="head">
+        <div class="logo">
+            <a href="//www.jd.com/">
+                <img src="//misc.360buyimg.com/lib/img/e/logo-201305-b.png" alt="京东" width="170" height="60">
+
+            </a>
+            <b></b>
+        </div>
+        <div class="question" href="//surveys.jd.com/index.php?r=survey/index/sid/568245/lang/zh-Hans">
+            <img src="京东-欢迎登录/q-icon.png" alt="">
+            <a>登录页面,调查问卷</a>
+        </div>
+    </div>
+    <main>
+        <div class="head">
+            <div class="content">
+                <img src="京东-欢迎登录/icon-tips.png" alt="">
+                <p>依据《网络安全法》，为保障您的账户安全和正常使用，请尽快完成手机号验证！ 新版
+                    <a>《京东隐私政策》</a>已上线，将更有利于保护您的个人隐私。</p>
+            </div>
+
+        </div>
+        <div class="banner">
+            <div class="banner_content">
+                <!-- <div></div> -->
+                <div class="login">
+                    <div class="header">
+                        <img src="京东-欢迎登录/icon-tips.png" alt="">
+                        <span>京东不会以任何理由要求您转账汇款，谨防诈骗。</span>
+                    </div>
+                    <div class="select">
+                        <div>
+                            <a href="">扫码登录</a>
+                        </div>
+                        <div></div>
+                        <div>
+                            <a href="">账户登录</a>
+                        </div>
+                    </div>
+                    <div class="QR_code">
+                        <div class="QR_image">
+                            <img class="QR_image1" src="京东-欢迎登录/show.jpg" alt="">
+                            <img class="QR_image2" src="京东-欢迎登录/phone-orange.png" alt="" style="display: none">
+                        </div>
+                    </div>
+                    <form action="/jd/login" method="POST" style="display: none">
+                        <div class="user">
+                            <label for="user"></label>
+                            <input type="text" name="user" placeholder="邮箱/用户名/已验证手机" required pattern="">
+                        </div>
+                        <div class="pwd">
+                            <label for="pwd"></label>
+                            <input type="password" name="pwd" placeholder="密码" required pattern="">
+                        </div>
+                        <div class="forget"><a href="">忘记密码</a></div>
+                        <div class="btn">
+                            <input type="submit" value="登&#x3000;录">
+                        </div>
+                        
+                    
+                    </form>
+                    <div class="login_bottom">
+                            <div class="reg">
+                                 <div class="reg_left">
+                                     <div class="qq">
+                                         <div class="qq_img"></div>
+                                         <span>QQ</span>
+                                     </div>
+                                     <span class="line"></span>
+                                     <div class="wechat">
+                                          <div class="wechat_img"></div>
+                                          <span>微信</span>
+                                      </div>
+                                 </div>
+                                 <div class="reg_right">
+                                      <div class="reg_img"></div>
+                                      <span>立即注册</span>
+                                 </div>
+                            </div>
+                      </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+    <nav>
+        <a href="">关于我们</a>
+        <a href="">联系我们</a>
+        <a href="">人才招聘</a>
+        <a href="">商家入驻</a>
+        <a href="">广告服务</a>
+        <a href="">手机京东</a>
+        <a href="">友情链接</a>
+        <a href="">销售联盟</a>
+        <a href="">京东社区</a>
+        <a href="">京东公益</a>
+        <a href="">English Site</a>
+    </nav>
+    <footer>
+        <p>Copyright © 2004-2018  京东JD.com 版权所有</p>
+    </footer>
+     <script src="jquery/jquery-3.3.1.min.js"></script>
+     <script>
+      $('main .QR_image .QR_image1').hover(function(){
+        // $('main .QR_image .QR_image1').css('position','relative')
+        // $('main .QR_image .QR_image1').css('left','0')
+          console.log('111')
+          $('main .QR_image .QR_image2').css('display','block')
+      })
+     </script>
+</body>
+
+</html>
