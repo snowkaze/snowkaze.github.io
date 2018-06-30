@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box_left"></div>
+    <script src="jquery/jquery-3.3.1.min.js"></script>
+    <script>
+    function formatTime() {
+        var times = $(".hour span").text() * 3600 + $(".min span").text() * 60 + $(".sec span").text() * 1;
+        if (times <= 0) {
+            clearInterval(tim)
+            return
+        }
+        //每隔一秒执行减一
+        times--
+        //获取小时
+        var h = parseInt(times / 3600);
+        //获取分钟
+        var m = parseInt(times / 60);
+        //获取秒数
+        var s = times % 60;
+
+        $(".hour span").text(h < 10 ? '0' + h : h);
+        $(".min span").text(m < 10 ? '0' + m : m);
+        $(".sec span").text(s < 10 ? '0' + s : s);
+    }
+    var listdataOne = [];
+    $(document).ready(function () {
+        $.getJSON({
+            url: 'json/list.json',
+            success: function (data) {
+                var str = '';
+                listdataOne = data;
+                // console.log(listdataOne);
+                listdataOne.forEach(function (e) {
+                    var some = '';
+                    var d = e.content.length;
+                    var s = '';
+                    for (var i = 0; i < d; i++) {
+                        s += ('<a href="">' + e.content[i] + '</a>')
+                        if (i != (d - 1)) {
+                            s += "/";
+                        }
+                    }
+                    some += ('<li>' + s + "<section class='list'></section>" + '</li>');
+                    str += some;
+                })
+                //  console.log(str);
+                $(".box_left").html('<ul>' + str + '</ul>');
+            }
+        })
+    })
+
+    $(document).ready(function(){
+        $.ajax({
+            url:"json/lunbo.json",
+            success:function(data){
+                // console.log(data);
+                $(".list").each(function (i,e) {
+                    var s1='';
+                    var s2='';
+                    var s3='';
+                    var s4='';
+                    // console.log(i);
+                    data[i].top.forEach(function(e){
+                        // console.log(e);
+                        s1+= "<li>"+ e +' > '+"</li>"
+                    })
+
+                    data[i].two.forEach(function(e,h){
+                        s2 +="<dt>"+ e +' > '+"</dt>" ;
+                        data[i].content[h].forEach(function(e){
+
+                            s2+="<dd>"+e+"</dd>";
+                        }) 
+                        s3 +="<dl>"+s2+"</dl>"
+                        s4+=s3;
+                        s3='';
+                        s2='';
+                        
+                    });
+                    
+                    
+                    var str='<div class="list_left"><div class="top"><ul>'+ s1 +'</ul></div>'+"<div class='bottom'>"+ s4+" </div>"
+                    +'</div><div class="list_right"></div>'
+                    $(this).html(str);
+                })
+                $(".list_right").each(function (i,e) {
+                    $(this).html("<div class='imgboxs'>1</div><div class='imgbox'><img src='"+data[i].imgs[0] +"' alt=''></div><div class='imgbox'><img src='"+data[i].imgs[1] 
+
++"' alt=''></div>");
+                    var str2='';
+                    data[i].img.forEach(function (e) {  
+                        str2+="<img src='"+ e +"'>"
+                    })
+                    $(this).children(".imgboxs").html(str2);
+                   
+                })
+            }
+        })
+    })
+  
+    </script>
+</body>
+</html>

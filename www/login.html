@@ -388,11 +388,11 @@
                     </div>
                     <div class="select">
                         <div>
-                            <a href="">扫码登录</a>
+                            <a class="select_QR" href="">扫码登录</a>
                         </div>
                         <div></div>
                         <div>
-                            <a href="">账户登录</a>
+                            <a class="select_login" href="">账户登录</a>
                         </div>
                     </div>
                     <div class="QR_code">
@@ -401,22 +401,23 @@
                             <img class="QR_image2" src="京东-欢迎登录/phone-orange.png" alt="" style="display: none">
                         </div>
                     </div>
-                    <form action="/jd/login" method="POST" style="display: none">
-                        <div class="user">
-                            <label for="user"></label>
-                            <input type="text" name="user" placeholder="邮箱/用户名/已验证手机" required pattern="">
-                        </div>
-                        <div class="pwd">
-                            <label for="pwd"></label>
-                            <input type="password" name="pwd" placeholder="密码" required pattern="">
-                        </div>
-                        <div class="forget"><a href="">忘记密码</a></div>
-                        <div class="btn">
-                            <input type="submit" value="登&#x3000;录">
-                        </div>
-                        
+                    <div class="a_login " style="display: none">
+                        <form  action="/jd/login" method="POST" >
+                            <div class="user">
+                                <label for="user"></label>
+                                <input type="text" name="user" placeholder="邮箱/用户名/已验证手机" required pattern="">
+                            </div>
+                            <div class="pwd">
+                                <label for="pwd"></label>
+                                <input type="password" name="pwd" placeholder="密码" required pattern="">
+                            </div>
+                            <div class="forget"><a href="">忘记密码</a></div>
+                            <div class="btn">
+                                <input type="submit" value="登&#x3000;录">
+                            </div>
+                        </form>
+                    </div>
                     
-                    </form>
                     <div class="login_bottom">
                             <div class="reg">
                                  <div class="reg_left">
@@ -432,7 +433,7 @@
                                  </div>
                                  <div class="reg_right">
                                       <div class="reg_img"></div>
-                                      <span>立即注册</span>
+                                      <span class="now">立即注册</span>
                                  </div>
                             </div>
                       </div>
@@ -461,11 +462,40 @@
      <script src="jquery/jquery-3.3.1.min.js"></script>
      <script>
       $('main .QR_image .QR_image1').hover(function(){
-        // $('main .QR_image .QR_image1').css('position','relative')
-        // $('main .QR_image .QR_image1').css('left','0')
           console.log('111')
-          $('main .QR_image .QR_image2').css('display','block')
+          $('main .QR_image .QR_image2').css('display','block') 
+      },function(){
+        $('main .QR_image .QR_image2').css('display','none')
       })
+      
+    $(document).ready(function(){
+        $('.select_QR').click(function(e){
+            e.preventDefault()
+          $('.QR_code').css('display','block')
+          $('.a_login').css('display','none')
+      })
+      $('.select_login').on('click',function(e){
+          e.preventDefault()
+          $('.QR_code').css('display','none');
+          $('.a_login').css('display','block')
+      })
+      $('.select_login').mouseenter(function( ){  
+          $(this).css('color','red')
+          $('.select_QR').css('color','black')
+      })
+      $('.select_QR').mouseenter(function( ){  
+          $(this).css('color','red')
+          $('.select_login ').css('color','black')
+      })
+    })
+   $('.now').on('click',function(){
+       location.href='reg.html'
+   })
+   $('.now').hover(function(){
+       $('.now').css('cursor','pointer')
+   },function(){
+       $('.now').css('cursor','default')
+   })
      </script>
 </body>
 
